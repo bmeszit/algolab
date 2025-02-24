@@ -1,5 +1,4 @@
 name: Evaluate Solutions
-
 on:
   pull_request:
     types: [opened, synchronize]
@@ -9,61 +8,47 @@ on:
         description: 'Folder to evaluate (e.g. lab1)'
         required: true
         default: 'lab1'
-
 permissions:
   pull-requests: write
   contents: read
-
 jobs:
   evaluate:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y time bc python3
-        
-    - name: Make eval.sh executable
-      run: chmod +x eval.sh
-        
-    - name: Run evaluation
-      id: eval
-      run: |
-        # Run eval.sh and capture output
-        OUTPUT=$(./eval.sh lab1)  # Hardcoded to lab1 for PR automation
-        
-        # Convert output to markdown format for better display
-        echo "### Evaluation Results for lab1" > results.md
-        echo '```' >> results.md
-        echo "$OUTPUT" >> results.md
-        echo '```' >> results.md
-        
-        # Save output for the next step
-        cat results.md
-        
-    - name: Comment on PR
-      if: github.event_name == 'pull_request'
-      uses: actions/github-script@v7
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const fs = require('fs');
-          const results = fs.readFileSync('results.md', 'utf8');
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y time bc python3
+      - name: Make eval.sh executable
+        run: chmod +x eval.sh
+      - name: Run evaluation
+        id: eval
+        run: |
+          FOLDER="${{ github.event.inputs.folder || 'lab1' }}"
           
-          await github.rest.issues.createComment({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            issue_number: context.issue.number,
-            body: results
-          });
-    
-    - name: Create results as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: evaluation-results
-        path: results.md
+          echo "### Evaluation Results for $FOLDER" > results.md
+          echo '```' >> results.md
+          ./eval.sh $FOLDER | tee -a results.md
+          echo '```' >> results.md
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const results = fs.readFileSync('results.md', 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: results
+            });
+      - name: Create results as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-results
+          path: results.md
