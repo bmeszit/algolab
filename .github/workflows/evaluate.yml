@@ -3,7 +3,7 @@ name: Evaluate Solutions
 on:
   pull_request:
     types: [opened, synchronize]
-  workflow_dispatch:  # Keep manual trigger as well
+  workflow_dispatch:
     inputs:
       folder:
         description: 'Folder to evaluate (e.g. lab1)'
@@ -21,12 +21,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Need full history for git diff to work
+        fetch-depth: 0
         
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y time bc
+        sudo apt-get install -y time bc python3
         
     - name: Make eval.sh executable
       run: chmod +x eval.sh
