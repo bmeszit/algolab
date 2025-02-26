@@ -14,7 +14,6 @@ function print_usage {
 }
 
 function process_params {
-   # Process options.
    debug=false
    while getopts ":dh" option; do
        case $option in
@@ -23,7 +22,6 @@ function process_params {
            ?) echo "unknown option: -$OPTARG"; echo; print_usage; exit ;;
        esac
    done
-   # Remove the options from the positional parameters.
    shift $((OPTIND-1))
    input_path="$1"
 }
@@ -54,16 +52,57 @@ function process_time_output {
 }
 
 function set_hard_limits {
-   # Set 10 second CPU time limit (ulimit uses seconds)
-   ulimit -t 10
-   # Set 1GB memory limit (ulimit uses KB, so 1GB = 1024 * 1024 KB)
-   ulimit -v $((1024 * 1024 * 2))
+  ulimit -t 10
+  ulimit -v $((1024 * 1024 * 2))
+  ulimit -s 65536
+}
+
+function check_answer_git {
+    local ans_file="$1"
+    if git diff -w --ignore-blank-lines --ignore-space-at-eol --quiet "$ans_file" 2>/dev/null; then
+        printf "OK\n"
+    else
+        printf "WA\n"
+    fi
+}
+
+function check_answer_teszter {
+    local teszter_out="$1"
+    local in_file="$2"
+    local ans_file="$3"
+    local sol_file="$4"
+    
+    "$teszter_out" <<< "$in_file"$'\n'"$ans_file"$'\n'"$sol_file"
+    result_status=$?
+
+    if [[ $result_status -eq 0 ]]; then
+        printf "OK\n"
+    else
+        printf "WA\n"
+    fi
 }
 
 function evaluate_file {
     local source_file="$1"
     local extension="${source_file##*.}"
     local dir="$(dirname "$source_file")"
+
+    if [[ "$(basename "$source_file")" == "teszter.cpp" ]]; then
+        return
+    fi
+
+    local teszter
+    teszter=$(find "$dir" -type f -name "teszter.cpp" 2>/dev/null | head -n 1)
+    local use_teszter=false
+    local teszter_out
+
+    if [[ -n "$teszter" ]]; then
+        use_teszter=true
+        teszter_out="${teszter}.out"
+        compile_cpp "$teszter"
+        g++ -o "$teszter_out" "$teszter"
+    fi
+
     time_limit=5
     mem_limit=512
     
@@ -71,52 +110,52 @@ function evaluate_file {
     compile "$source_file"
     
     for in_file in "$dir"/**/*.in; do
-        [[ -f "$in_file" ]] || continue # Skip if no .in files found
-        ans_file="${in_file%.*}".ans
+        [[ -f "$in_file" ]] || continue
         
-        # First run the program and capture its output and status
+        ans_file="${in_file%.*}".ans
+        if [[ $use_teszter == true ]]; then
+          sol_file="${in_file%.*}".sol
+        else
+          sol_file="$ans_file"
+        fi
+
         time_output=$( (
             set_hard_limits
             case $extension in
                 ("cpp")
-                    /usr/bin/time -f "%e %U %S %M" ./"$out_file" <"$in_file" 2>&1 >"$ans_file"
+                    /usr/bin/time -f "%e %U %S %M" ./"$out_file" <"$in_file" 2>&1 >"$sol_file"
                     exit ${PIPESTATUS[0]}
                     ;;
                 ("py")
-                    /usr/bin/time -f "%e %U %S %M" python3 "$source_file" <"$in_file" 2>&1 >"$ans_file"
+                    /usr/bin/time -f "%e %U %S %M" python3 "$source_file" <"$in_file" 2>&1 >"$sol_file"
                     exit ${PIPESTATUS[0]}
                     ;;
             esac
         ) )
         subshell_status=$?
         
-        # First print the test case info
-        printf "%s | " "$ans_file"
-        
+        printf "%s | " "$sol_file"
         if [ $subshell_status -ne 0 ]; then
-            # If it's RE, we don't care about time/memory
             printf "RE\n"
             continue
         fi
-        
-        # Only process time/memory if it's not RE
+    
         read cpu mem_mb <<< $(process_time_output "$time_output")
         printf "TIME: %.2fs MEM: %.1fMB | " $cpu $mem_mb
-        
-        # Then check other conditions
+
         if (( $(echo "$cpu > $time_limit" | bc -l 2>/dev/null || echo "0") )); then
             printf "TLE\n"
         elif (( $(echo "$mem_mb > $mem_limit" | bc -l 2>/dev/null || echo "0") )); then
             printf "MLE\n"
-        elif git diff -w --ignore-blank-lines --ignore-space-at-eol --quiet "$ans_file" 2>/dev/null; then
-            printf "OK\n"
+        elif [[ $use_teszter == true ]]; then
+            check_answer_teszter "$teszter_out" "$in_file" "$ans_file" "$sol_file"
         else
-            printf "WA\n"
+            check_answer_git "$sol_file"
         fi
     done
     
-    # Cleanup cpp output file if it exists
     [[ $extension == "cpp" ]] && [[ -f "$out_file" ]] && rm "$out_file"
+    [[ -n "$teszter_out" ]] && [[ -f "$teszter_out" ]] && rm "$teszter_out" || true
 }
 
 function process_directory {
