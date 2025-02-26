@@ -28,7 +28,6 @@ jobs:
         id: eval
         run: |
           FOLDER="${{ github.event.inputs.folder || 'lab2' }}"
-          
           echo "### Evaluation Results for $FOLDER" > results.md
           echo '```' >> results.md
           ./eval.sh $FOLDER | tee -a results.md
