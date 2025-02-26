@@ -8,3 +8,33 @@ Algoritmusok átismétlése:
 - Mélységi keresés, élek kategorizálása, körök megtalálása, topologikus sorrend.
 - Euklideszi körséta.
 - Dijkstra.
+
+## Feladatsor
+
+Órai feladatok:
+
+1\. [Üzenet](./ora1-uzenet/)  
+2\. [Csapatok](./ora2-csapatok/)  
+3\. [Ütemezés](./ora3-utemezes/)  
+4\. [Körút](./ora4-korut/)  
+5\. [Posta](./ora5-posta/)  
+6\. [Repülő](./ora6-repulo/)
+
+Önálló/csapatos munkában labor közben kidolgozott feladatért +10 pont jár.
+
+Házi feladatok:
+
+1\. [Szobák](./hf1-szobak/) [10 pont]  
+2\. [Labirintus](./hf2-labirintus/) [10 pont]  
+3\. [Kupon](./hf3-kupon/) [10 pont]  
+4\. [Nyereményút](./hf4-nyeremenyut/) [10 pont]  
+5\. [Bitek](./hf5-bitek/)  [10 pont]
+
+## Pontozás
+
+- 2: 19-26 pont
+- 3: 27-34 pont
+- 4: 35-42 pont
+- 5: 43-50 pont
+
+A házi feladatokból összesen 50 pont szerezhető, ezen felül órai munkáért még extra pontok járnak, amikből IMSC pont gyűjthető.
