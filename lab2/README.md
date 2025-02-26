@@ -15,7 +15,7 @@ Algoritmusok átismétlése:
 
 1\. [Üzenet](./ora1-uzenet/): P. Ákos + Lilla  
 2\. [Csapatok](./ora2-csapatok/): Matyi + Ádám  
-3\. [Ütemezés](./ora3-utemezes/): Gergő + Hanga  
+3\. [Ütemezés](./ora3-utemezes/): Gergő + Hanga (+10 pont) 
 4\. [Körút](./ora4-korut/): Beni + Kitti  
 5\. [Posta](./ora5-posta/): A. Ákos + Balázs  
 6\. [Repülő](./ora6-repulo/): Laci (+10 pont)
