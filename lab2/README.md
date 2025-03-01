@@ -11,14 +11,14 @@ Algoritmusok átismétlése:
 
 ## Feladatsor
 
-Órai feladatok:
+Órai feladatok és mintamegoldások:
 
-1\. [Üzenet](./ora1-uzenet/)  
-2\. [Csapatok](./ora2-csapatok/)  
-3\. [Ütemezés](./ora3-utemezes/)  
-4\. [Körút](./ora4-korut/)  
-5\. [Posta](./ora5-posta/)  
-6\. [Repülő](./ora6-repulo/)
+1\. [Üzenet](./ora1-uzenet/) ([megoldás](./ora1-uzenet/uzenet.cpp))  
+2\. [Csapatok](./ora2-csapatok/) ([megoldás](./ora2-csapatok/csapatok.cpp))  
+3\. [Ütemezés](./ora3-utemezes/) ([megoldás](./ora3-utemezes/utemezes.cpp))  
+4\. [Körút](./ora4-korut/) ([megoldás](./ora4-korut/korut.cpp))  
+5\. [Posta](./ora5-posta/) ([megoldás](./ora5-posta/posta.cpp))  
+6\. [Repülő](./ora6-repulo/) ([megoldás](./ora6-repulo/repulo.cpp))  
 
 Önálló/csapatos munkában labor közben kidolgozott feladatért +10 pont jár.
 
