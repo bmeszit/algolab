@@ -7,7 +7,7 @@ A későbbi témakörök képlékenyek, erősen attól függenek, hogy a korább
 | Labor | Dátum            | Terv                                           |
 | ----- | ---------------- | ---------------------------------------------- |
 | Lab1  | 2025\. 02\. 12\. | Rekurziók, keresés, rendezés                   |
-| Lab2  | 2025\. 02\. 26\. | Gráfalgoritmusok: BFS, DFS, Dijkstra           |
+| Lab2  | 2025\. 02\. 26\. | Gráfalgoritmusok: BFS, DFS, Euler-ks, Dijkstra |
 | Lab3  | 2025\. 03\. 12\. | DSU, Kruskal, Párosítások (?)                  |
 | Lab4  | 2025\. 03\. 26\. | Stabil párosítások, Folyam (?)                 |
 | Lab5  | 2025\. 04\. 09\. | Játékelm. algok (?)                            |
