@@ -42,7 +42,7 @@ set<pair<int,int>> used;
 // felírt csúcsok máris az Euler-körsétát adják a gráfban.
 // Ha nincs szerencsénk, akkor maradhatott a megtalált körséta mentén olyan v csúcs, akinek még van
 // nem bejárt éle. Ilyenkor ebből a csúcsból meg kell ismételni a mohó szaladást és a most
-// megtalált csúcsokat be kell szúrni az eredeti listánkba a v csúcs helyére, ezáltal egy
+// felírt csúcsokat be kell szúrni az eredeti listánkba a v csúcs helyére, ezáltal egy
 // nagyobb körsétát kapva a gráfban.
 // Ezt az eljárást addig kell ismételni, amíg maradt még nem bejárt éle a gráfnak.
 
