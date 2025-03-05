@@ -103,8 +103,9 @@ function evaluate_file {
     summary_passed["$source_file"]=0
 
     if $github_mode; then
-        echo "<details style=\"margin-bottom: 0px !important\">"
+        echo "<details>"
         echo
+        echo "\`\`\`"
     fi
 
     local teszter
@@ -152,11 +153,10 @@ function evaluate_file {
         subshell_status=$?
         
         local result=""
-        local cpu="??"
-        local mem_mb="??"
+        local cpu="-1"
+        local mem_mb="-1"
         if [ $subshell_status -ne 0 ]; then
             result="RE"
-            continue
         else
           read cpu mem_mb <<< "$(process_time_output "$time_output")"
           if (( $(echo "$cpu > $time_limit" | bc -l 2>/dev/null || echo "0") )); then
@@ -174,7 +174,14 @@ function evaluate_file {
             summary_passed["$source_file"]=$(( summary_passed["$source_file"] + 1 ))
         fi
 
-        printf "%3s | %s | TIME: %5.2fs  MEM: %5.2fMB\n" "$result" "$sol_file" "$cpu" "$mem_mb"
+        if [ "$cpu" = "-1" ]; then
+          cpu="   ??"
+          mem_mb="   ??"
+        else
+          cpu="$(printf "%5.2f" "$cpu")"
+          mem_mb="$(printf "%5.2f" "$mem_mb")"
+        fi
+        printf "%3s | %s | TIME: %ss  MEM: %sMB\n" "$result" "$sol_file" "$cpu" "$mem_mb"
     done
     
     local status="OK"
@@ -183,6 +190,7 @@ function evaluate_file {
     fi
 
     if $github_mode; then
+      echo "\`\`\`"
       echo
       echo "<summary>"
     fi
@@ -220,7 +228,13 @@ function print_summary {
 
 function print_manual {
   local dir="$1"
-  echo -e "\nManual check:"
+  echo
+  process_params "$@"
+  if $github_mode; then
+    echo "## Manual check"
+  else
+    echo "Manual check:"
+  fi
   while IFS= read -r -d '' file; do
     if [[ "$(basename "$file")" != "README.md" ]]; then
       printf " ?? --/-- %s\n" "$file"
@@ -230,7 +244,11 @@ function print_manual {
 
 function main {
   process_params "$@"
-  echo "Testing: $input_path"
+  if $github_mode; then
+    echo "# Testing $input_path"
+  else
+    echo "Testing: $input_path"
+  fi
   if [[ -d "$input_path" ]]; then
     process_directory "$input_path"
   elif [[ -f "$input_path" ]]; then
