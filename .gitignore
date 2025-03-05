@@ -1,0 +1,4 @@
+*.out
+*.sol
+.venv
+.vscode
