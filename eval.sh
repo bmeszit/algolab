@@ -2,8 +2,13 @@
 set +e
 shopt -s globstar
 
+declare -A summary_total
+declare -A summary_passed
+
+github_mode=false
+
 function print_usage {
-   echo "usage: $0 [-d] <source_file.(py|cpp) or directory>"
+   echo "usage: $0 [-d] [-g] <source_file.(py|cpp) or directory>"
    echo
    echo "eval.sh evaluates code files for all .in files in their directory (recursively)"
    echo "and saves the output in the corresponding .ans file on the same path."
@@ -11,13 +16,15 @@ function print_usage {
    echo "If a directory is provided, it processes all .py and .cpp files in that directory."
    echo
    echo " -d turn on debug-mode (adds -g and -DLOCAL flags during cpp compilation)"
+   echo " -g enable GitHub mode (wraps output in <details> blocks)"
 }
 
 function process_params {
    debug=false
-   while getopts ":dh" option; do
+   while getopts ":dgh" option; do
        case $option in
            d) debug=true ;;
+           g) github_mode=true ;;
            h) print_usage; exit ;;
            ?) echo "unknown option: -$OPTARG"; echo; print_usage; exit ;;
        esac
@@ -31,7 +38,7 @@ function compile_cpp {
    gpp_opts=(-x c++ -g -O2 -std=gnu++20 -static)
    $debug && gpp_opts+=( -g -DLOCAL )
    out_file="$source_file".out
-   g++ -o "$out_file" ${gpp_opts[@]} "$source_file"
+   g++ -o "$out_file" "${gpp_opts[@]}" "$source_file"
 }
 
 function compile {
@@ -39,13 +46,13 @@ function compile {
    local extension="${source_file##*.}"
    case $extension in
        ("cpp") compile_cpp "$source_file" ;;
-       ("py") echo python ;;
+       ("py") ;;
        (*) echo "error: extension .$extension is not recognized"; return 1 ;;
    esac
 }
 
 function process_time_output {
-  read real user sys mem <<< $1
+  read real user sys mem <<< "$1"
   cpu=$(echo "$user + $sys" | bc)
   mem_mb=$(echo "scale=1; $mem/1024" | bc)
   echo "$cpu $mem_mb"
@@ -60,9 +67,9 @@ function set_hard_limits {
 function check_answer_git {
     local ans_file="$1"
     if git diff -w --ignore-blank-lines --ignore-space-at-eol --quiet "$ans_file" 2>/dev/null; then
-        printf "OK\n"
+        printf "OK"
     else
-        printf "WA\n"
+        printf "WA"
     fi
 }
 
@@ -76,19 +83,28 @@ function check_answer_teszter {
     result_status=$?
 
     if [[ $result_status -eq 0 ]]; then
-        printf "OK\n"
+        printf "OK"
     else
-        printf "WA\n"
+        printf "WA"
     fi
 }
 
 function evaluate_file {
     local source_file="$1"
     local extension="${source_file##*.}"
-    local dir="$(dirname "$source_file")"
+    local dir
+    dir="$(dirname "$source_file")"
 
     if [[ "$(basename "$source_file")" == "teszter.cpp" ]]; then
         return
+    fi
+
+    summary_total["$source_file"]=0
+    summary_passed["$source_file"]=0
+
+    if $github_mode; then
+        echo "<details style=\"margin-bottom: 0px !important\">"
+        echo
     fi
 
     local teszter
@@ -106,15 +122,16 @@ function evaluate_file {
     time_limit=5
     mem_limit=512
     
-    echo "Processing: $source_file"
     compile "$source_file"
     
     for in_file in "$dir"/**/*.in; do
         [[ -f "$in_file" ]] || continue
+
+        summary_total["$source_file"]=$(( summary_total["$source_file"] + 1 ))
         
-        ans_file="${in_file%.*}".ans
+        ans_file="${in_file%.*}.ans"
         if [[ $use_teszter == true ]]; then
-          sol_file="${in_file%.*}".sol
+          sol_file="${in_file%.*}.sol"
         else
           sol_file="$ans_file"
         fi
@@ -134,48 +151,98 @@ function evaluate_file {
         ) )
         subshell_status=$?
         
-        printf "%s | " "$sol_file"
+        local result=""
+        local cpu="??"
+        local mem_mb="??"
         if [ $subshell_status -ne 0 ]; then
-            printf "RE\n"
+            result="RE"
             continue
-        fi
-    
-        read cpu mem_mb <<< $(process_time_output "$time_output")
-        printf "TIME: %.2fs MEM: %.1fMB | " $cpu $mem_mb
-
-        if (( $(echo "$cpu > $time_limit" | bc -l 2>/dev/null || echo "0") )); then
-            printf "TLE\n"
-        elif (( $(echo "$mem_mb > $mem_limit" | bc -l 2>/dev/null || echo "0") )); then
-            printf "MLE\n"
-        elif [[ $use_teszter == true ]]; then
-            check_answer_teszter "$teszter_out" "$in_file" "$ans_file" "$sol_file"
         else
-            check_answer_git "$sol_file"
+          read cpu mem_mb <<< "$(process_time_output "$time_output")"
+          if (( $(echo "$cpu > $time_limit" | bc -l 2>/dev/null || echo "0") )); then
+              result="TLE"
+          elif (( $(echo "$mem_mb > $mem_limit" | bc -l 2>/dev/null || echo "0") )); then
+              result="MLE"
+          elif [[ $use_teszter == true ]]; then
+              result=$(check_answer_teszter "$teszter_out" "$in_file" "$ans_file" "$sol_file")
+          else
+              result=$(check_answer_git "$sol_file")
+          fi
         fi
+
+        if [[ "$result" == "OK" ]]; then
+            summary_passed["$source_file"]=$(( summary_passed["$source_file"] + 1 ))
+        fi
+
+        printf "%3s | %s | TIME: %5.2fs  MEM: %5.2fMB\n" "$result" "$sol_file" "$cpu" "$mem_mb"
     done
     
+    local status="OK"
+    if [ "${summary_passed[$source_file]}" -ne "${summary_total[$source_file]}" ]; then
+      status="!!"
+    fi
+
+    if $github_mode; then
+      echo
+      echo "<summary>"
+    fi
+    printf " %s %d/%d %s\n" "$status" "${summary_passed[$source_file]}" "${summary_total[$source_file]}" "$source_file"
+    if $github_mode; then
+      echo "</summary>"
+      echo
+      echo "</details>"
+    fi
+
     [[ $extension == "cpp" ]] && [[ -f "$out_file" ]] && rm "$out_file"
     [[ -n "$teszter_out" ]] && [[ -f "$teszter_out" ]] && rm "$teszter_out" || true
+    echo
 }
 
 function process_directory {
    local dir="$1"
-   # Find all .py and .cpp files in the directory
    while IFS= read -r -d '' file; do
        evaluate_file "$file"
    done < <(find "$dir" -type f \( -name "*.py" -o -name "*.cpp" \) -print0 | sort -z)
 }
 
+function print_summary {
+  echo "Summary:"
+  for file in $(printf "%s\n" "${!summary_total[@]}" | sort); do
+    total=${summary_total["$file"]}
+    passed=${summary_passed["$file"]}
+    status="OK"
+    if [ "$passed" -ne "$total" ]; then
+      status="!!"
+    fi
+    printf " %s %d/%d %s\n" "$status" "$passed" "$total" "$file"
+  done
+}
+
+function print_manual {
+  local dir="$1"
+  echo -e "\nManual check:"
+  while IFS= read -r -d '' file; do
+    if [[ "$(basename "$file")" != "README.md" ]]; then
+      printf " ?? --/-- %s\n" "$file"
+    fi
+  done < <(find "$dir" -type f \( -name "*.md" -o -name "*.txt" \) -print0 | sort -z)
+}
+
 function main {
-   process_params "$@"
-   if [[ -d "$input_path" ]]; then
-       process_directory "$input_path"
-   elif [[ -f "$input_path" ]]; then
-       evaluate_file "$input_path"
-   else
-       echo "Error: Input path does not exist"
-       exit 1
-   fi
+  process_params "$@"
+  echo "Testing: $input_path"
+  if [[ -d "$input_path" ]]; then
+    process_directory "$input_path"
+  elif [[ -f "$input_path" ]]; then
+    evaluate_file "$input_path"
+  else
+    echo "Error: Input path does not exist"
+    exit 1
+  fi
+  if ! $github_mode; then
+    print_summary
+  fi
+  print_manual "$input_path"
 }
 
 main "$@"
