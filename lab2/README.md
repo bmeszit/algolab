@@ -32,9 +32,9 @@ Házi feladatok:
 
 ## Pontozás
 
-- 2: 19-26 pont
-- 3: 27-34 pont
-- 4: 35-42 pont
-- 5: 43-50 pont
+- 2: 12-16 pont
+- 3: 17-20 pont
+- 4: 21-25 pont
+- 5: 26-30 pont
 
-A házi feladatokból összesen 50 pont szerezhető, ezen felül órai munkáért még extra pontok járnak, amikből IMSC pont gyűjthető.
+A házi feladatokból összesen 50 pont szerezhető, a 30 pont feletti teljesítményért és az órai munkáért IMSC pontok gyűjthetők.
