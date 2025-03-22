@@ -13,7 +13,7 @@ Algoritmusok átismétlése:
 
 Órai feladatok és mintamegoldások:
 
-1\. [Üzenet](./ora1-uzenet/) ([megoldás](./ora1-uzenet/uzenet.cpp)) P. Ákos + Lilla (3. hely, +10 pont)    
+1\. [Üzenet](./ora1-uzenet/) ([megoldás](./ora1-uzenet/uzenet.cpp)) P. Ákos + Lilla (3. hely, +10 pont)  
 2\. [Csapatok](./ora2-csapatok/) ([megoldás](./ora2-csapatok/csapatok.cpp)) Matyi + Ádám (4. hely, +10 pont)  
 3\. [Ütemezés](./ora3-utemezes/) ([megoldás](./ora3-utemezes/utemezes.cpp)) Gergő + Hanga (2. hely, +10 pont)  
 4\. [Körút](./ora4-korut/) ([megoldás](./ora4-korut/korut.cpp)) Beni + Kitti (+7 pont)  
