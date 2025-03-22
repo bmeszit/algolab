@@ -10,7 +10,7 @@ Minden manónak két lehetősége van a lépésre, mindkettő egy másodpercet v
 
 Mivel a megidézett manók csak korlátozott ideig maradhatnak a mi világunkban, ki kell számolnod a minimális $t$ időt másodpercekben, ami alatt el tudják tüntetni az összes sötét kristályt. A manók a $t$ másodperc letelte után bárhol lehetnek, csak az összes kristálynak el kell tűnnie addigra, mielőtt a manók is köddé válnak.
 
-Adjunk hatékony algoritmust a feladatra! Ha $A = \sum\limits_i a_i$, akkor például jó lehet egy $O(\log(A) \cdot (A+n) \cdot m)$-s algoritmus (de ennél ügyesebben is lehet).
+Adjunk hatékony algoritmust a feladatra! Ha $A = \sum\limits_i a_i$, akkor például jó lehet egy $O(\log(A+n) \cdot (A+n) \cdot m)$-s algoritmus (de ennél ügyesebben is lehet).
 
 ## Példa
 
