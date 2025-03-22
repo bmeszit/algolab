@@ -9,8 +9,8 @@ Algoritmusok átismétlése:
 
 Órai feladatok:
 
-1\. [Tánc](./ora1-tanc/)  
-2\. [Épülő város](./ora2-epulo/)
+1\. [Tánc](./ora1-tanc/) 2. +5 pont (Lilla, Matyi, P. Ákos, Ádám)  
+2\. [Épülő város](./ora2-epulo/) 1. +10 pont (Laci, A. Ákos, Balázs)
 
 Önálló/csapatos munkában labor közben kidolgozott feladatért +10 pont jár.
 
