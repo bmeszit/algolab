@@ -3,8 +3,7 @@
 Implementáljuk a Kaminski-féle közlekedőedény-rendszert a kelmeszabály-konzisztens szétosztásra
 a nem-hidraulikus számítógépünkön! :)
 
-A feladat érdekessé tétele érdekében ugyanazon követelésekhez több kérdés is tartozik, több különböző mennyiségű 
-vagyonmennyiségre is kell alkalmaznunk ugyanazt a követelésrendszert.
+A feladat érdekessé tétele érdekében ugyanazon követelésekhez több kérdés is tartozik, több különböző szétosztandó vagyonértékre is kell alkalmaznunk ugyanazt a követelésrendszert.
 
 ## Bemenet
 
