@@ -21,9 +21,10 @@ halmaz generálása, általad válaszott $k$ méretben, ahol $k \leq 50000$.
 
 A feladatot most egyetlen konkrét, $n=10$ méretű inputra tűztük ki, csak erre kell megoldani.
 
-Adható rá általános megoldás is (ilyen is létezik), de választható ügyes konstrukció,
-illetve ha valaki kézzel, vagy félig kézzel félig számítógéppel segített módon végigszámolja
-és ír egy programot, ami ezt a statikus kimenetet írja ki, azt is el fogjuk fogadni.
+Adható rá általános megoldás is (ilyen is létezik), de választható ügyes konstrukció, ami
+konkrétan erre a gráfra működik, illetve ha valaki kézzel, vagy félig kézzel félig
+számítógéppel segített módon végigszámolja és ír egy programot, ami ezt a statikus
+kimenetet írja ki, azt is el fogjuk fogadni.
 
 Pusztán kíváncsiságból persze érdekelni fog, hogy kinek hogy jött ki az eredmény. :)
 
