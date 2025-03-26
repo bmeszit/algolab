@@ -1,6 +1,6 @@
 # Horoszkóp
 
-Legyen $H$ $n \times m$-es mátrix, a fiúk és a lányok horoszkóp szerinti kompatibilitási mátrixa: az $i$.
+Legyen $H$ egy $n \times m$-es mátrix, a fiúk és a lányok horoszkóp szerinti kompatibilitási mátrixa: az $i$.
 sor $j$. cellájának értéke $h_{i,j}$ egész szám, ami az $i$. fiú és a $j$. lány kompatibilitását
 adja meg a horoszkópjuk alapján! Tegyük fel továbbá, hogy $H$-ban a cellák értékei páronként
 különbözőek.
