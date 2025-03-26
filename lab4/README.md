@@ -14,8 +14,8 @@ Algoritmus átismétlése:
 
 Házi feladatok:
 
-**Ezeket a feladatokat én gyártottam, ezért itt most különösen igaz, hogy ha bárki elakadna, időben szóljon,
-mert előfordulhatnak hibák!** 
+**Ezeket a feladatokat félig én gyártottam vagy komolyabban módosítottam, ezért itt most
+különösen igaz, hogy ha bárki elakadna, időben szóljon, mert előfordulhatnak hibák!** 
 
 1\. [Boldogtalanság](./hf1-boldogtalansag/) [ELM, 10 pont]  
 2\. [Nemek egyenlősége](./hf2-nemek-egyenlosege/) [PROG, 10 pont]  
