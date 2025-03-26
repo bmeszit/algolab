@@ -12,7 +12,7 @@ A bemenet első sorában az $1 \leq n,q \leq 2 \cdot 10^5$ egész számok, a kö
 Az ezt követő $n$ sorban a követelések értékét adtuk meg, páros egész számként reprezentálva.
 Az $(i+1)$. sorban az $2 \leq k_i \leq 2000$ szám az $i$. hitelező követelését reprezentálja.
 
-Végül $q$ sorban következnek a kérdések, az $(n+i+1)$. sorban a $0 \leq v_i \leq 10^3$ vagyonmennyiség.
+Végül $q$ sorban következnek a kérdések, az $(n+i+1)$. sorban a $0 \leq v_i \leq 10^4$ vagyonmennyiség.
 
 ## Kimenet
 
