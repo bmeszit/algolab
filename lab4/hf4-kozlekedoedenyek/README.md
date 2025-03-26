@@ -16,7 +16,7 @@ Végül $q$ sorban következnek a kérdések, az $(n+i+1)$. sorban a $0 \leq v_i
 
 ## Kimenet
 
-A kimenet $q$ sorból álljon, az $i$. sorban a $v_i$ vagyonmennyiség esetén a ksz-konzisztens szétosztás eredményeképpen kapott legnagyobb részesedés, tizedestört alakban, $10^{-6}$-os pontossággal.
+A kimenet $q$ sorból álljon, az $i$. sorban a $v_i$ vagyonmennyiség esetén a ksz-konzisztens szétosztás eredményeképpen kapott **legnagyobb** részesedés, tizedestört alakban, $10^{-6}$-os pontossággal.
 
 ## Példa
 
