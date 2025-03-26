@@ -36,7 +36,31 @@ A bemenet első sorában az $n$ és az $m$ egész számok állnak. Ezt követi $
 
 A kimenet első sorába a választott $k$ szavazószámot kell írni, majd ezt kövesse $k$ darab sor, minden sorban az $1 \dots n$ számok egy permutációja álljon.
 
-## Egy másik szemléltető példa, ami nem feladat
+## A feladat
+
+Bemenet:
+```
+10 15
+2 1
+3 2
+4 3
+5 4
+1 5
+8 6
+9 7
+10 8
+6 9
+7 10
+6 1
+9 4
+8 3
+2 7
+5 10
+```
+
+Kimenet: ? :)
+
+## Egy másik, a kimenetet szemléltető példa, ami nem feladat
 
 Bemenet:
 ```
