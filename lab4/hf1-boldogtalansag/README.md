@@ -11,7 +11,7 @@ Ha pedig az $i$. fiú nincs fedve a stabil párosítások által, akkor az ő bo
 
 Továbbá definiáljuk a lányok boldogtalanságát hasonlóan.
 
-Számítsuk ki a fiúk és a lányok maximális boldogtalanságát, azaz a fiúk boldogtalanságát a lány-optimális stabil párosításra, illetve a lányok boldogtalanságát a fiú-optimális stabil párosításra nézve!
+Számítsuk ki egyénenként a maximális lehetséges boldogtalanságot, azaz a fiúk boldogtalanságát a lány-optimális stabil párosításra nézve, illetve a lányok boldogtalanságát a fiú-optimális stabil párosításra nézve!
 
 ## Bemenet
 
