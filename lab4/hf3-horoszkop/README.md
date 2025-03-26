@@ -5,6 +5,6 @@ sor $j$. cellájának értéke $h_{i,j}$ egész szám, ami az $i$. fiú és a $j
 adja meg a horoszkópjuk alapján! Tegyük fel továbbá, hogy $H$-ban a cellák értékei páronként
 különbözőek.
 
-Rendezzék a fiúk és a lányok is a kompatibilitási mátrix által megadott értékek alapján a preferenciáikat.
+Rendezzék a fiúk és a lányok is a kompatibilitási mátrix által megadott értékek alapján a preferenciáikat, úgy hogy jelentsen a kisebb $h_{i,j}$ érték magasabb kompatibilitást.
 
 Bizonyítsuk be, hogy ilyen feltételek mellett pontosan egy stabil párosítás létezik a fiúk és a lányok között!
