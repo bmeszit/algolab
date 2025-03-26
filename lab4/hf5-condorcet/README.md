@@ -19,7 +19,7 @@ halmaz generálása, általad válaszott $k$ méretben, ahol $k \leq 50000$.
 
 ## Figyelem
 
-A feladatot most egyetlen konkrét, $n=10$ méretű inputra tűztük ki, csak erre kell megoldani.
+**A feladatot most egyetlen konkrét, $n=10$ méretű inputra tűztük ki, csak erre kell megoldani.**
 
 Adható rá általános megoldás is (ilyen is létezik), de választható ügyes konstrukció, ami
 konkrétan erre a gráfra működik, illetve ha valaki kézzel, vagy félig kézzel félig
