@@ -10,6 +10,11 @@ Algoritmus átismétlése:
 
 1\. [Stabil párosítás](./ora1-stabil//)
 
+- Matyi + Ádám: https://vprog.hu/code6
+- Hanga + Balázs + Gergő: https://vprog.hu/code4
+- Lilla + Laci: https://vprog.hu/code5
+- A. Ákos: https://vprog.hu/code8
+
 Önálló/csapatos munkában labor közben kidolgozott feladatért +10 pont jár.
 
 Házi feladatok:
