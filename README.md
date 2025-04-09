@@ -14,6 +14,14 @@ A későbbi témakörök képlékenyek, erősen attól függenek, hogy a korább
 | Lab6  | 2025\. 04\. 30\. | Találjunk ki HEX stratégiákat                     |
 | Lab7  | 2025\. 05\. 14\. | Meghívott előadás (?)                             |
 
+## Pontozás
+
+- Összesen 6 laboralkalom van, ezekre függetlenül kaptok egy-egy jegyet, továbbá legfeljebb 20-30 extra pontot.
+- A legrosszabbul sikerült labort nem vesszük figyelembe, ez akár nem teljesített is lehet.
+- Az 5 laborra kapott jegy átlaga az év végi jegy.
+- Az 5 laborra kapott extra pontok átlaga, de legfeljebb 15 pont az IMSC pont. Tehát *nem* skálázzuk le 15-re, túl lehet teljesíteni a maximumot.
+- Az utolsó, 7. laboralkalomra vendégelőadást próbálok szervezni, az már csak kikapcsolódás lesz, házik nélkül.
+
 ## Programozási feladatok
 
 - C++ vagy Python nyelven oldhatók meg.
