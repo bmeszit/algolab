@@ -42,20 +42,21 @@ Verdictek:
 - RE = Runtime Error
   - Jelenleg, ha a time/memory limit 2x-esét meghaladja, akkor is RE, de ezt próbálom javítani.
 
-### Tesztelő futtatása lokálisan
+### Tesztelő futtatása
 
-Windowson, Docker telepítése után:
+Lehet egy egész mappát, vagy a feladat mappájának a gyökerében lévő fájlt tesztelni (lásd a lenti példákat). Konkrét fájlnál az a fontos, hogy csak azt a könyvtárat nézi végig teszteseteket keresve rekurzívan, amiben a fájl található.
 
-Példák, adott mappára, vagy a mappa gyökerében lévő konkrét fájlra lefuttatni a teszteket, a repó root-jában kiadva:
+### Windowson
+
+Docker telepítése után, a repó root-jában kiadva:
 ```powershell
 $env:TARGET="lab5"; docker-compose up
 $env:TARGET="lab5/ora1-ttc"; docker-compose up
 $env:TARGET="lab5/ora1-ttc/megoldasom.cpp"; docker-compose up
 $env:TARGET="lab5/ora1-ttc/ttc.py"; docker-compose up
 ```
-Konkrét fájlnál az a fontos, hogy csak azt a könyvtárat nézi végig teszteseteket keresve rekurzívan, amiben a fájl található.
 
-Linuxon:
+### Linuxon
 
 Függőségek telepítése (Debian-alapú Linuxokon):
 ```bash
@@ -70,7 +71,7 @@ Futtatás példák:
 ./eval.sh lab5/ora1-ttc/ttc.py
 ```
 
-Vagy akár Dockerrel, annak a telepítése után:
+Vagy akár Dockerrel, annak a telepítése után, a repó root-jában kiadva:
 ```bash
 TARGET=lab5 sudo -E docker compose up
 TARGET=lab5/ora1-ttc sudo -E docker compose up
@@ -78,7 +79,13 @@ TARGET=lab5/ora1-ttc/megoldasom.cpp sudo -E docker compose up
 TARGET=lab5/ora1-ttc/ttc.py sudo -E docker compose up
 ```
 
-Ezen felül a pull requestben mindig le fog futni az adott labor mappájára az `eval.sh`, továbbá saját Github Action-t is futtathattok, Workflow triggerrel, tetszőleges mappanévre.
+### Githubon
+
+A pull requestben mindig le fog futni az adott labor mappájára az `eval.sh`, ha feltöltötök a `main` branchre valamit.
+
+Ezen felül bármelyik branchen futtatható az Evaluate Solutions action (Github Actions tabon):
+
+![](./assets/eval-github.png)
 
 ## Források
 

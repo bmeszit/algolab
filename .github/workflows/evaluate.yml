@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       folder:
-        description: 'Folder to evaluate (e.g. lab5)'
+        description: 'Folder/File to evaluate (e.g. lab5, lab5/orai-ttc, lab5/orai-ttc/ttc.cpp)'
         required: true
         default: 'lab5'
 permissions:
