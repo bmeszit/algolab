@@ -48,7 +48,7 @@ Lehet egy egész mappát, vagy a feladat mappájának a gyökerében lévő fáj
 
 ### Windowson
 
-Docker telepítése után, a repó root-jában kiadva:
+Docker telepítése után, a repó root-jában kiadva PowerShell-ből:
 ```powershell
 $env:TARGET="lab5"; docker-compose up
 $env:TARGET="lab5/ora1-ttc"; docker-compose up
