@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
     inputs:
       folder:
-        description: 'Folder to evaluate (e.g. lab4)'
+        description: 'Folder to evaluate (e.g. lab5)'
         required: true
-        default: 'lab4'
+        default: 'lab5'
 permissions:
   pull-requests: write
   contents: read
@@ -27,7 +27,7 @@ jobs:
       - name: Run evaluation
         id: eval
         run: |
-          FOLDER="${{ github.event.inputs.folder || 'lab4' }}"
+          FOLDER="${{ github.event.inputs.folder || 'lab5' }}"
           ./eval.sh -g "$FOLDER" | tee results.md
       - name: Comment on PR
         if: github.event_name == 'pull_request'
