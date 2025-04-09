@@ -4,15 +4,15 @@
 
 A későbbi témakörök képlékenyek, erősen attól függenek, hogy a korábbi laborokon hogyan haladtunk, hogy sikerültek a házik.
 
-| Labor | Dátum            | Terv                                           |
-| ----- | ---------------- | ---------------------------------------------- |
-| Lab1  | 2025\. 02\. 12\. | Rekurziók, keresés, rendezés                   |
-| Lab2  | 2025\. 02\. 26\. | Gráfalgoritmusok: BFS, DFS, Euler-ks, Dijkstra |
-| Lab3  | 2025\. 03\. 12\. | DSU, Kruskal, Párosítások                      |
-| Lab4  | 2025\. 03\. 26\. | Stabil párosítások, közlekedőedények, szavazás |
-| Lab5  | 2025\. 04\. 09\. | Játékelm. algok (?)                            |
-| Lab6  | 2025\. 04\. 30\. | Találjunk ki HEX stratégiákat                  |
-| Lab7  | 2025\. 05\. 14\. | Meghívott előadás (?)                          |
+| Labor | Dátum            | Terv                                              |
+| ----- | ---------------- | ------------------------------------------------- |
+| Lab1  | 2025\. 02\. 12\. | Rekurziók, keresés, rendezés                      |
+| Lab2  | 2025\. 02\. 26\. | Gráfalgoritmusok: BFS, DFS, Euler-ks, Dijkstra    |
+| Lab3  | 2025\. 03\. 12\. | DSU, Kruskal, Párosítások                         |
+| Lab4  | 2025\. 03\. 26\. | Stabil párosítások, közlekedőedények, szavazás    |
+| Lab5  | 2025\. 04\. 09\. | Lakáspiaci újraelosztások, TTC, egyensúlyi árazás |
+| Lab6  | 2025\. 04\. 30\. | Találjunk ki HEX stratégiákat                     |
+| Lab7  | 2025\. 05\. 14\. | Meghívott előadás (?)                             |
 
 ## Programozási feladatok
 
