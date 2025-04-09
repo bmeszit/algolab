@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Install: sudo apt install time bc git build-essential python3 python-is-python3
+
 set +e
 shopt -s globstar
 

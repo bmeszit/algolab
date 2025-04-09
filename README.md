@@ -42,25 +42,43 @@ Verdictek:
 - RE = Runtime Error
   - Jelenleg, ha a time/memory limit 2x-esét meghaladja, akkor is RE, de ezt próbálom javítani.
 
-### Tesztelő futtatása
+### Tesztelő futtatása lokálisan
 
-Lokálisan:
+Windowson, Docker telepítése után:
 
-- Linuxon: `eval.sh <mappa>` Lefuttatja az adott mappára a teszteket.
-- Bármilyen operációs rendszeren Dockerrel:
-  - Windowson, PowerShell-ből: `$env:TARGET="lab5"; docker-compose up`
-  - Linuxon: `TARGET=lab5 sudo -E docker compose up`
-    - Az újabb `docker-compose` parancs már szóközzel működik, azaz `docker compose`.
-    - Linuxon `sudo`-val lehet csak futtatni a dockert (hacsak valaki nem hekkelt össze egy sudoless verziót).
-    - A `sudo -E` opció megtartja az environmental változókat, így a `TARGET` beállítása megmarad neki.
+Példák, adott mappára, vagy a mappa gyökerében lévő konkrét fájlra lefuttatni a teszteket, a repó root-jában kiadva:
+```powershell
+$env:TARGET="lab5"; docker-compose up
+$env:TARGET="lab5/ora1-ttc"; docker-compose up
+$env:TARGET="lab5/ora1-ttc/megoldasom.cpp"; docker-compose up
+$env:TARGET="lab5/ora1-ttc/ttc.py"; docker-compose up
+```
+Konkrét fájlnál az a fontos, hogy csak azt a könyvtárat nézi végig teszteseteket keresve rekurzívan, amiben a fájl található.
 
-Pull requestben:
+Linuxon:
 
-- Mindig az adott laborra lefut az `eval.sh`.
+Függőségek telepítése (Debian-alapú Linuxokon):
+```bash
+sudo apt install time bc git build-essential python3 python-is-python3
+```
 
-Github actionben:
+Futtatás példák:
+```bash
+./eval.sh lab5
+./eval.sh lab5/ora1-ttc
+./eval.sh lab5/ora1-ttc/megoldasom.cpp
+./eval.sh lab5/ora1-ttc/ttc.py
+```
 
-- Workflow triggerrel futtatható, tetszőleges mappanévre.
+Vagy akár Dockerrel, annak a telepítése után:
+```bash
+TARGET=lab5 sudo -E docker compose up
+TARGET=lab5/ora1-ttc sudo -E docker compose up
+TARGET=lab5/ora1-ttc/megoldasom.cpp sudo -E docker compose up
+TARGET=lab5/ora1-ttc/ttc.py sudo -E docker compose up
+```
+
+Ezen felül a pull requestben mindig le fog futni az adott labor mappájára az `eval.sh`, továbbá saját Github Action-t is futtathattok, Workflow triggerrel, tetszőleges mappanévre.
 
 ## Források
 
