@@ -39,7 +39,12 @@ Verdictek:
 Lokálisan:
 
 - Linuxon: `eval.sh <mappa>` Lefuttatja az adott mappára a teszteket.
-- Más operációs rendszeren: Docker telepítése után `eval_docker.sh <mappa>`.
+- Bármilyen operációs rendszeren Dockerrel:
+  - Windowson, PowerShell-ből: `$env:TARGET="lab5"; docker-compose up`
+  - Linuxon: `TARGET=lab5 sudo -E docker compose up`
+    - Az újabb `docker-compose` parancs már szóközzel működik, azaz `docker compose`.
+    - Linuxon `sudo`-val lehet csak futtatni a dockert (hacsak valaki nem hekkelt össze egy sudoless verziót).
+    - A `sudo -E` opció megtartja az environmental változókat, így a `TARGET` beállítása megmarad neki.
 
 Pull requestben:
 
