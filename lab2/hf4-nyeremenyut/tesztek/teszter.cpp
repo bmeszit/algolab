@@ -20,6 +20,7 @@ int main()
 {
   string in_file_path, ans_file_path, sol_file_path;
   cin>>in_file_path>>ans_file_path>>sol_file_path;
+  cin.exceptions(ios::failbit);
 
   ifstream in_file(in_file_path);
   ifstream ans_file(ans_file_path);

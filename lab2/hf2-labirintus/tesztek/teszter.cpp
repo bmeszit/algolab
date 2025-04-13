@@ -11,6 +11,7 @@ int main()
 {
   string in_file_path, ans_file_path, sol_file_path;
   cin>>in_file_path>>ans_file_path>>sol_file_path;
+  cin.exceptions(ios::failbit);
 
   ifstream in_file(in_file_path);
   ifstream ans_file(ans_file_path);
@@ -48,7 +49,6 @@ int main()
   int ax=-1, ay=-1, bx=-1, by=-1;
   for(int x=0; x<n; ++x)
   {
-    cin>>rooms[x];
     for(int y=0; y<m; ++y)
     {
       if(rooms[x][y]=='A') { ax=x; ay=y; }
