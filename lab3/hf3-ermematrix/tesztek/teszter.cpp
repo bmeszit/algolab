@@ -24,7 +24,7 @@ int main()
   vector<set<int>> g(n, set<int>());
   for(int i=0; i<n; ++i)
   {
-    string a; cin>>a;
+    string a; in_file>>a;
     for(int j=0; j<n; ++j)
     {
       if(a[j] == 'o') g[i].insert(j);
