@@ -3,7 +3,7 @@
 Biztosan van legalább egy stabil párosítás, hiszen a lánykérő algoritmust futtatva
 az adott bemenetre fogunk egyet találni.
 
-Állítás: Biztosan nincs kettő vagy több páronként különböző stabil párosítás,
+Biztosan nincs kettő vagy több páronként különböző stabil párosítás,
 hiszen ha lenne két különböző, akkor:
 
 - Ezek szimmetrikus különbsége diszjunkt köröket alkot, legyenek az egyik ilyen kör csúcsai sorban $v_1, v_2, \dots, v_k$. Legyen az egyik párosítás a zöld, a másik a fekete élű:
