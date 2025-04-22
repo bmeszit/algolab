@@ -242,7 +242,17 @@ function print_manual {
     if [[ "$(basename "$file")" != "README.md" ]]; then
       printf " ?? --/-- %s\n" "$file"
     fi
-  done < <(find "$dir" -type f \( -name "*.md" -o -name "*.txt" \) -print0 | sort -z)
+   done < <(
+    find "$dir" -type f \
+      ! -name '*.cpp' \
+      ! -name '*.py' \
+      ! -name '*.in' \
+      ! -name '*.ans' \
+      ! -name '*.sol' \
+      ! -name 'README.md' \
+      -print0 \
+    | sort -z
+  )
 }
 
 function main {
