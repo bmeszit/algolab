@@ -1,75 +1,78 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-struct boy { vector<int> ord; int i; };
-struct girl { vector<int> rank; int i; };
+const int infty = numeric_limits<int>::max();
 
 int n, m;
-vector<boy> b; // Fiúk
-vector<girl> g; // Lányok
+vector<int> boy_idx;
+vector<vector<int>> boy_props;
+vector<map<int, int>> girl_prefs;
+queue<int> free_boys;
+vector<int> girl_match;
+vector<int> boy_match;
 
-int propose(int bi)
+int girl_rank(int g, int b) { return girl_prefs[g].count(b) ? girl_prefs[g][b] : infty; }
+
+void propose(int b)
 {
-  boy& bx = b[bi];
-
-  // Ha nincs felkérhető lány, nem próbálkozunk tovább.
-  if(bx.ord.size() <= bx.i) return -1;
-
-  // Ha a következő lány nem ismeri a fiút, próbálkozunk tovább.
-  // Irányítatlan élekre ezt nem kell külön nézni.
-  if(g[bx.ord[bx.i]].rank[bi] == -1) { ++bx.i; return bi; }
-
-  girl& gx = g[bx.ord[bx.i]];
-
-  // Ha a lánynak nincs párja, akkor sikerült!
-  if(gx.i == -1) { gx.i = bi; return -1; }
-
-  // Ha a lány mostani párja jobb, próbálkozunk tovább.
-  if(gx.rank[gx.i] < gx.rank[bi])  { ++bx.i; return bi; }
-
-  // Egyébként a mostani párt elutasítja a lány.
-  int bo = gx.i; gx.i = bi;
-  ++b[bo].i; return bo;
+  int g = boy_props[b][boy_idx[b]]; ++boy_idx[b];
+  int ob = girl_match[g];
+  if(ob != -1)
+  {
+    if(girl_rank(g, ob) < girl_rank(g, b)) { free_boys.push(b); return; }
+    boy_match[ob] = -1;
+    free_boys.push(ob);
+  }
+  girl_match[g] = b;
+  boy_match[b] = g;
 }
 
 int main()
 {
   cin>>n>>m;
-  b.assign(n, { ord: {}, i: 0 });
-  g.assign(m, { rank: vector<int>(n, -1), i: -1 });
+  boy_idx.assign(n, {});
+  boy_props.assign(n, {});
+  girl_prefs.assign(m, {});
 
-  for(int i=0; i<n; ++i)
+  free_boys = {};
+  boy_match.assign(n, -1);
+  girl_match.assign(m, -1);
+
+  for(int b=0; b<n; ++b)
   {
+    free_boys.push(b);
     int k; cin>>k;
-    for(int j=0; j<k; ++j)
+    for(int p=0; p<k; ++p)
     {
-      int x; cin>>x; --x;
-      b[i].ord.push_back(x);
-    }
-  }
-  for(int i=0; i<m; ++i)
-  {
-    int k; cin>>k;
-    for(int j=0; j<k; ++j)
-    {
-      int x; cin>>x; --x;
-      g[i].rank[x]=j;
+      int g; cin>>g; --g;
+      boy_props[b].push_back(g);
     }
   }
 
-  for(int i=0; i<n; ++i)
+  for(int g=0; g<m; ++g)
   {
-    int bi = i;
-    while(bi != -1) bi = propose(bi);
+    int k; cin>>k;
+    for(int p=0; p<k; ++p)
+    {
+      int b; cin>>b; --b;
+      girl_prefs[g][b] = p;
+    }
   }
-  
+
+  while(!free_boys.empty())
+  {
+    int b = free_boys.front(); free_boys.pop();
+    if (boy_props[b].size() <= boy_idx[b]) continue;
+    propose(b);
+  }
+
   int cnt=0;
-  for(int i=0; i<m; ++i) cnt += g[i].i != -1;
-  cout<<cnt<<endl;
-  for(int i=0; i<m; ++i)
+  for(int b=0; b<n; ++b) if(boy_match[b] != -1) ++cnt;
+  cout << cnt << endl;
+  for(int b=0; b<n; ++b)
   {
-    if(g[i].i == -1) continue;
-    cout << g[i].i+1 << " " << i+1 << endl;
+    if(boy_match[b] == -1) continue;
+    cout << b+1 << " " << boy_match[b]+1 << endl;
   }
+
   return 0;
 }
