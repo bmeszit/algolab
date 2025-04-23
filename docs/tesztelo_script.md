@@ -1,7 +1,8 @@
 # Tesztelő script
 
 - Az `eval.sh` scripttel lehet egy egész mappát, vagy a feladat mappájának a gyökerében lévő fájlt tesztelni (lásd a lenti példákat).
-- Konkrét fájlnál az a fontos, hogy csak azt a könyvtárat nézi végig teszteseteket keresve rekurzívan, amiben a fájl található.
+  - A script az adott mappában lévő összes `.py`, illetve `.cpp` fájlt leteszteli, az adott fájlhoz tartozó mappában lévő tesztesetekre.
+    - Ezért a kódfájlt a feladat mappájába kell tenni, a kiírást tartalmazó `README.md` mellé.
 - Több lehetséges megoldás esetén:
   - Sok feladat esetében a megoldás egyértelmű, azonban akad bőven olyan is, ahol több lehetséges jó megoldás van, például egy maximális párosítás megtalálása a gráfban.
   - Ilyenkor az általam írt `feladat/tesztek/tester.cpp` program ellenőrzi algoritmikusan a kiírt megoldás helyességét, a hivatalos megoldás alapján.
