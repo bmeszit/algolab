@@ -63,4 +63,4 @@ TARGET=lab5 sudo -E docker compose up
 - A pull requestben mindig le fog futni az adott labor mappájára az `eval.sh`, ha feltöltötök a `main` branchre valamit.
 - Ezen felül bármelyik branchen futtatható az Evaluate Solutions action (Github Actions tabon):
 
-![](./assets/eval-github.png)
+![](./eval-github.png)
