@@ -1,40 +1,30 @@
 # Lab1
 
-## Önlab promó
+> [Önlab a SZIT-en](/docs/szit_onlab.md)
 
-Tanszéki önlab témák:
-
-http://cs.bme.hu/oktatas/temakiiras.html
-
-- Nem baj, ha még nincs konkrét témád. Melyik témavezető szimpatikus? Eddigi tantárgyakban mi tetszett?
-- Ha neked van egy jó ötleted, azzal is megkereshetsz témavezetőket.
-- Ha most máshol csinálod az önlabot, később is lehet váltani hozzánk.
-
-Ha nem tudod kit válassz, keresd [Friedl Katalint](https://cs.bme.hu/~friedl/) vagy [Csima Juditot](https://cs.bme.hu/~csima/)!
-
-## Témakörök
-
-- Motiváció, mese arról, hogy egy szép ötletes megoldás mennyivel megkönnyíti az implementációt és milyen jó buli algelt programozni!
+- Motiváció, mese arról, hogy egy szép ötletes megoldás mennyivel megkönnyíti
+az implementációt és milyen jó buli algelt programozni!
 - Bevezető feladatok, implementációs ötletek, rekurzió.
 - Rendezések és bináris keresés.
 
 ## Feladatsor
 
-Bevezető feladatok:
+Órai feladatok:
 
-1\. [Hanoi tornyai](./01-hanoi/) [PROG, 0 pont]  
-2\. [Rendezések](./02-rendezes/) [PROG, 0 pont]  
+1\. [Hanoi tornyai](./ora1-hanoi/)  
+2\. [Rendezések](./ora2-rendezes/)  
 
-Kidolgozható feladatok:
+Házi feladatok:
 
-3\. [Gépek](./03-gepek/) [PROG, 10 pont]  
-4\. [Rádió](./04-radio/) [PROG, 10 pont]  
-5\. [Gray](./05-gray/) [PROG, 10 pont]  
-6\. [Bájitalok](./06-bajitalok/) [PROG, 10 pont]  
-7\. [Rúnák](./07-runak/) [ELM, 10 pont]  
-8\. [Inverziók](./08-inverziok/) [PROG, 10 pont]  
-9\. [Kihívás](./09-kihivas/) [ELM, 10 pont]  
-10\. [Kristályok](./10-kristalyok/) [ELM, 10 pont]  
+Befejezendő: [Gépek](./ora3-gepek/) [10 pont]  
+
+1\. [Rádió](./hf1-radio/) [10 pont]  
+2\. [Gray](./hf2-gray/) [10 pont]  
+3\. [Bájitalok](./hf3-bajitalok/) [10 pont]  
+4\. [Rúnák](./hf4-runak/) [10 pont]  
+5\. [Inverziók](./hf5-inverziok/) [10 pont]  
+6\. [Kihívás](./hf6-kihivas/) [10 pont]  
+7\. [Kristályok](./hf7-kristalyok/) [10 pont]  
 
 ## Pontozás
 
