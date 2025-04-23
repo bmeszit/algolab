@@ -22,4 +22,4 @@
   - Helyesség és a lépésszám indoklása.
     - Olyan részletességgel, amivel egy szkeptikus szobatársatokat meg tudnátok győzni az igazatokról.
 - Részpontszám van, az alapján dől el mennyire vagytok messze egy teljes értékű megoldástól.
-- Reklamációra a félév közben van lehetőség, érdemes azért nem sokkal a
+- Reklamációra a félév közben van lehetőség, lehet írásban, például a PR-ban, vagy a legközelebbi laboralkalmon szóban.
