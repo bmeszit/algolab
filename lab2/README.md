@@ -11,7 +11,7 @@ Algoritmusok átismétlése:
 
 ## Feladatsor
 
-Órai feladatok és mintamegoldások:
+Órai feladatok:
 
 1\. [Üzenet](./ora1-uzenet/) P. Ákos + Lilla (3. hely, +10 pont)  
 2\. [Csapatok](./ora2-csapatok/) Matyi + Ádám (4. hely, +10 pont)  
