@@ -1,4 +1,4 @@
-# Mágus Misi bájitalai [PROG]
+# Mágus Misi bájitalai [PROGRAMOZÁS]
 
 Mágus Misi újabb problémával szembesült. Varázskamrájában $n$ darab bájital található, amiknek $b_1, \dots, b_n$ az erősségük.
 

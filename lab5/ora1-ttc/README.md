@@ -1,4 +1,4 @@
-# Top Trading Cycle
+# Top Trading Cycle [PROGRAMOZÁS]
 
 Implementáljuk az Algoritmikus játékelméletből a lakáspiaci újraelosztáshoz tanult Top Trading Cycle (TTC) algoritmust!
 

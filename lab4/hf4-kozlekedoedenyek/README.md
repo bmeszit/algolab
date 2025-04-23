@@ -1,4 +1,4 @@
-# Közlekedőedények
+# Közlekedőedények [PROGRAMOZÁS]
 
 Implementáljuk a Kaminski-féle közlekedőedény-rendszert a kelmeszabály-konzisztens szétosztásra
 a nem-hidraulikus számítógépünkön! :)

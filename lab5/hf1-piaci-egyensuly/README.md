@@ -1,4 +1,4 @@
-# Lakáspiaci egyensúly
+# Lakáspiaci egyensúly [PROGRAMOZÁS]
 
 Folytassuk az [ora1-ttc](../ora1-ttc/) feladatot és keressük most meg a piaci
 egyensúlyhoz tartozó árazást:

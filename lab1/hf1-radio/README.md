@@ -1,4 +1,4 @@
-# Rádió [PROG]
+# Rádió [PROGRAMOZÁS]
 
 A bemeneten megkapod egy rádióállomás adott napi lejátszási listáját, ami
 összesen $n$ zeneszámot tartalmaz.

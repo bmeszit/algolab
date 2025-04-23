@@ -23,12 +23,11 @@ Házi feladatok:
 **Ezeket a feladatokat félig én gyártottam vagy komolyabban módosítottam, ezért itt most
 különösen igaz, hogy ha bárki elakadna, időben szóljon, mert előfordulhatnak hibák!** 
 
-1\. [Boldogtalanság](./hf1-boldogtalansag/) [PROG, 10 pont]  
-2\. [Nemek egyenlősége](./hf2-nemek-egyenlosege/) [ELM, 10 pont]  
-3\. [Horoszkóp](./hf3-horoszkop/) [ELM, 10 pont]  
-4\. [Közlekedoedenyek](./hf4-kozlekedoedenyek/) [PROG, 10 pont]  
-5\. [Condorcet](./hf5-condorcet/) [KONSTRUKCIÓ, 10 pont]
-  - KONSTRUKCIÓ: 1 teszteset van, konstrukciót várok, megoldható kézzel/félig programozottan/teljesen programozottan.
+1\. [Boldogtalanság](./hf1-boldogtalansag/) [10 pont]  
+2\. [Nemek egyenlősége](./hf2-nemek-egyenlosege/) [10 pont]  
+3\. [Horoszkóp](./hf3-horoszkop/) [10 pont]  
+4\. [Közlekedoedenyek](./hf4-kozlekedoedenyek/) [10 pont]  
+5\. [Condorcet](./hf5-condorcet/) [10 pont]
 
 ## Pontozás
 

@@ -1,4 +1,4 @@
-# Laboridőpont tradelő alkalmazás
+# Laboridőpont tradelő alkalmazás [PROGRAMOZÁS]
 
 A BME-n sokszor előfordul, hogy a hallgatókat véletlenszerűen sorsolva osztják be
 az egyes laboridőpontokra, a hallgatóknak pedig ezután egymás között kell

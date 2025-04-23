@@ -1,4 +1,4 @@
-# Tánc
+# Tánc [PROGRAMOZÁS]
 
 Egy iskolába $n$ fiú és $m$ lány jár. Következő héten bált szerveznek, ahol fiú-lány párokat kell alkotni. Előre ismert $k$ darab potenciális párjelölt. A feladatod találni egy olyan beosztást, ahol a lehető legtöbb fiú-lány pár tud majd egyszerre táncolni.
 

@@ -1,4 +1,4 @@
-# Hanoi tornyai [PROG]
+# Hanoi tornyai [PROGRAMOZÁS]
 
 ![](./hanoi.jpg)
 

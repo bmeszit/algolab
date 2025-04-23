@@ -1,4 +1,4 @@
-# Nyereményút
+# Nyereményút [PROGRAMOZÁS]
 
 https://cses.fi/problemset/task/1680
 

@@ -1,4 +1,4 @@
-# Rendezési algoritmusok programozása, összehasonlítása [PROG]
+# Rendezési algoritmusok programozása, összehasonlítása [PROGRAMOZÁS]
 
 Elevenítsük fel és programozzuk le a következő rendezési algoritmusokat:
 

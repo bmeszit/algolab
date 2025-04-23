@@ -1,4 +1,4 @@
-# Mágikus rúnamátrix [ELM]
+# Mágikus rúnamátrix [ELMÉLET]
 
 Mágus Misi varázslótanonc a rúnakészítési gyakorlatát végezte, amikor
 Tamás főmágus úgy döntött, hogy próbára teszi egy nehéz feladattal.

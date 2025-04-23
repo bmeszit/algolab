@@ -1,4 +1,4 @@
-# Nemek egyenlősége
+# Nemek egyenlősége [ELMÉLET]
 
 A [HF1](../hf1-boldogtalansag/) feladatban definiáltuk a nemek boldogtalanságát.
 

@@ -1,4 +1,4 @@
-# Bitek
+# Bitek [PROGRAMOZÁS]
 
 https://cses.fi/problemset/task/1692
 

@@ -1,4 +1,8 @@
-# Condorcet szavazók
+# Condorcet szavazók [KONSTRUKCIÓ]
+
+**Figyelem**: Itt egyetlen teszteset van, konstrukciót várok, megoldható kézzel/félig programozottan/teljesen programozottan.
+
+-----
 
 Berlandban közeledik a választás időpontja. $2 \leq n \leq 50$ jelöltre kell a válaszóknak
 szavazniuk, méghozzá olyan módon, hogy a teljes preferenciasorrendjüket megadják.

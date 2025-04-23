@@ -1,4 +1,4 @@
-# Bitjáték
+# Bitjáték [ELMÉLET]
 
 Alice és Bob egy n hosszú bináris stringgel játszanak. Felváltva lépnek, minden körben az aktuális játékosnak választania kell egy bitpozíciót és invertálnia az ott lévő bitet. Van $k$ darab tiltott bitsorozat, amit senkinek nem szabad előállítani, továbbá minden bitsorozat legfeljebb egyszer állhat elő a játék során.
 

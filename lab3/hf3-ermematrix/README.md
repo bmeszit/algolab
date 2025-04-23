@@ -1,4 +1,4 @@
-# Érmemátrix
+# Érmemátrix [PROGRAMOZÁS]
 
 Van egy $n \times n$ méretű mátrixunk, amelynek néhány cellájában egy-egy érme található. Minden lépésben választhatunk vagy egy sort vagy egy oszlopot és a benne található összes érmét levehetjük. Adjuk meg, hogy legkevesebb hány lépéssel lehet kiüríteni a mátrixot és hogy melyik sorokat, illetve oszlopokat kell kiválasztanunk.
 

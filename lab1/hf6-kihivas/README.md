@@ -1,4 +1,4 @@
-# Mágus Misi [ELM]
+# Mágus Misi [ELMÉLET]
 
 Mágus Misit a Nagy Misztikus Akadémia hívta, hogy vegyen részt egy sor varázslatos megpróbáltatáson.
 

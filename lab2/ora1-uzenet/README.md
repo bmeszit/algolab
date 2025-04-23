@@ -1,4 +1,4 @@
-# Üzenet
+# Üzenet [PROGRAMOZÁS]
 
 https://cses.fi/problemset/task/1667
 

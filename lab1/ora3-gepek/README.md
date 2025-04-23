@@ -1,4 +1,4 @@
-# Gyár [PROG]
+# Gyár [PROGRAMOZÁS]
 
 Egy gyárban $n$ különböző sebességel dolgozó gép működik, amelyekkel egyféle terméket lehet gyártani. A cél, hogy összesen $t$ darab terméket készíts.
 

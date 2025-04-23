@@ -1,4 +1,4 @@
-# Mágus Misi és a sötét kristályok [ELM]
+# Mágus Misi és a sötét kristályok [ELMÉLET]
 
 Mágus Misi egyik reggel nagy bajban volt - az úton az Ősi Varázslók Akadémiája felé sötét energiából álló kristályoszlopok jelentek meg, teljesen eltorlaszolva az utat.
 

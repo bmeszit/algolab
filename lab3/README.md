@@ -16,11 +16,11 @@ Algoritmusok átismétlése:
 
 Házi feladatok:
 
-1\. [Bitjáték](./hf1-bitjatek/) [ELM, 10 pont]  
-2\. [MEX (már megint)](./hf2-mex/) [ELM, 10 pont]  
-3\. [Érmemátrix](./hf3-ermematrix/) [PROG, 10 pont]  
-4\. [Széteső hálózat](./hf4-szeteso/) [PROG, 10 pont]  
-5\. [Tamás és a hegyek](./hf5-tura/) [PROG, 10 pont]  
+1\. [Bitjáték](./hf1-bitjatek/) [10 pont]  
+2\. [MEX (már megint)](./hf2-mex/) [10 pont]  
+3\. [Érmemátrix](./hf3-ermematrix/) [10 pont]  
+4\. [Széteső hálózat](./hf4-szeteso/) [10 pont]  
+5\. [Tamás és a hegyek](./hf5-tura/) [10 pont]  
 
 ## Pontozás
 

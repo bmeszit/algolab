@@ -1,4 +1,4 @@
-# Tamás és a hegyek
+# Tamás és a hegyek [PROGRAMOZÁS]
 
 Tamás úgy döntött, hogy kirándulni megy a hegyekbe, ahol $n$ darab hegytető van,
 túraútszakaszokkal össszekötve. Az $i$. hegytető $h_i$ magasságú.

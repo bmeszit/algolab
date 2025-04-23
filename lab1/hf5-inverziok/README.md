@@ -1,4 +1,4 @@
-# Inverziók számolása [PROG]
+# Inverziók számolása [PROGRAMOZÁS]
 
 Készítsünk programot, ami a bemeneten beolvasott $n$ számhoz kiszámolja a benne található inverziók számát!
 

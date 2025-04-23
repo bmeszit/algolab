@@ -1,4 +1,4 @@
-# MEX (már megint)
+# MEX (már megint) [ELMÉLET]
 
 Mágus Misi varázslótanonc épp szabadidejét töltötte amikor Tamás főmágus úgy döntött egy újabb kihívás elé állítja.
 

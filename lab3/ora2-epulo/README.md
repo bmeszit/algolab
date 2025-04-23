@@ -1,4 +1,4 @@
-# Épülő város
+# Épülő város [PROGRAMOZÁS]
 
 Egy képzeletbeli ország $n$ városa között $m$ kétirányú autóút szakasz van. Sajnos az útszakaszok szörnyű állapotban vannak, ezért használhatatlanok. A kormány úgy döntött, hogy megjavít néhány útszakaszt úgy, hogy bármely városból bármely városba el lehessen jutni autóúton.
 

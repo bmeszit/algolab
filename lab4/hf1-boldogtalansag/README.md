@@ -1,4 +1,4 @@
-# Boldogtalanság
+# Boldogtalanság [PROGRAMOZÁS]
 
 Tanultuk, hogy a lánykérő algoritmussal megtalálhatjuk a fiú-optimális és a lány-optimális stabil párosítást, illetve
 hogy adott preferenciák mellett a stabil párosítások ugyanazt a csúcshalmazt fedik le.

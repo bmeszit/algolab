@@ -1,4 +1,4 @@
-# Széteső hálózat
+# Széteső hálózat [PROGRAMOZÁS]
 
 Budapest számítógépes hálózata $n$ számítógépből és $m$ irányítatlan kapcsolatból áll. Sajnos már senki nem emlékszik pontosan hogyan épül fel a hálózat, ezért ha egy kapcsolat megszakad, senki nem fogja tudni megjavítani. Ilyen esetben a hálózat egy komponense akár ketté is szakadhat.
 

@@ -1,4 +1,4 @@
-# Kupon
+# Kupon [PROGRAMOZÁS]
 
 https://cses.fi/problemset/task/1195
 

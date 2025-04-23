@@ -18,9 +18,9 @@ Algoritmus átismétlése:
 
 Házi feladatok:
 
-1\. [Lakáspiaci egyensúly](./hf1-piaci-egyensuly/) [PROG, 10 pont]  
-2\. [Mágus Misi és a félrement permutáció varázslat](./hf2-misi-permutacio/) [ELM, 10 pont]  
-3\. [Laboridőpont tradelő alkalmazás](./hf3-laborok/) [PROG, 30 pont]  
+1\. [Lakáspiaci egyensúly](./hf1-piaci-egyensuly/) [10 pont]  
+2\. [Mágus Misi és a félrement permutáció varázslat](./hf2-misi-permutacio/) [10 pont]  
+3\. [Laboridőpont tradelő alkalmazás](./hf3-laborok/) [30 pont]  
 
 ## Pontozás
 

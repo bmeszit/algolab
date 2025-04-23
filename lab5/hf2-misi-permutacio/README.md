@@ -1,4 +1,4 @@
-# Mágus Misi és a félrement permutáció varázslat
+# Mágus Misi és a félrement permutáció varázslat [ELMÉLET]
 
 Mágus Misi épp a lakáspiaci egyensúly számítása feladatot oldotta meg, amikor
 egy véletlen pálcasuhintással elsütött egy permutáció varázslatot és

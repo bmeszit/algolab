@@ -1,4 +1,4 @@
-# Körút
+# Körút [PROGRAMOZÁS]
 
 https://cses.fi/problemset/task/1669 (De átírtam irányítottra a feladatot!)
 

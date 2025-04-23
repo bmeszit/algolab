@@ -1,4 +1,4 @@
-# Gray kód [PROG]
+# Gray kód [PROGRAMOZÁS]
 
 A Gray kód egy olyan sorrendje az összes $n$ bites stringnek, ahol bármely két szomszédos string pontosan egy biten tér el.
 
