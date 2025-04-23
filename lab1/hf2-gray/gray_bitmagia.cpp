@@ -1,4 +1,5 @@
-// Meg ilyen bitmágiákkal is lehet Gray-kódot generálni. :)
+// A másik, rekurzív megoldásra gondoltam, de ilyen bitmágiákkal
+// is lehet Gray-kódot generálni. :)
 
 #include <bits/stdc++.h>
 using namespace std;

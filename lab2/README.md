@@ -13,12 +13,12 @@ Algoritmusok átismétlése:
 
 Órai feladatok és mintamegoldások:
 
-1\. [Üzenet](./ora1-uzenet/) ([megoldás](./ora1-uzenet/uzenet.cpp)) P. Ákos + Lilla (3. hely, +10 pont)  
-2\. [Csapatok](./ora2-csapatok/) ([megoldás](./ora2-csapatok/csapatok.cpp)) Matyi + Ádám (4. hely, +10 pont)  
-3\. [Ütemezés](./ora3-utemezes/) ([megoldás](./ora3-utemezes/utemezes.cpp)) Gergő + Hanga (2. hely, +10 pont)  
-4\. [Körút](./ora4-korut/) ([megoldás](./ora4-korut/korut.cpp)) Beni + Kitti (+7 pont)  
-5\. [Posta](./ora5-posta/) ([megoldás](./ora5-posta/posta.cpp)) A. Ákos + Balázs (4. hely, +10 pont)  
-6\. [Repülő](./ora6-repulo/) ([megoldás](./ora6-repulo/repulo.cpp)) Laci (1. hely, +10 pont)  
+1\. [Üzenet](./ora1-uzenet/) P. Ákos + Lilla (3. hely, +10 pont)  
+2\. [Csapatok](./ora2-csapatok/) Matyi + Ádám (4. hely, +10 pont)  
+3\. [Ütemezés](./ora3-utemezes/) Gergő + Hanga (2. hely, +10 pont)  
+4\. [Körút](./ora4-korut/) Beni + Kitti (+7 pont)  
+5\. [Posta](./ora5-posta/) A. Ákos + Balázs (4. hely, +10 pont)  
+6\. [Repülő](./ora6-repulo/) Laci (1. hely, +10 pont)  
 
 Önálló/csapatos munkában labor közben kidolgozott feladatért +10 pont jár.
 

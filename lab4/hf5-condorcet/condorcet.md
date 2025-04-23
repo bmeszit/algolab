@@ -29,6 +29,8 @@ Ez a megoldás $2m \leq 2n^2$ szavazót használ.
 
 ## Csúcsok implementálása (általános)
 
+[csucsok_impl.cpp](./csucsok_impl.cpp)
+
 (VProg-ra járó diákok megoldása alapján)
 
 Ha két csúcs között nincs él akkor azt húzzuk be véletlenszerűen.
@@ -63,6 +65,8 @@ Ezeknek a szavazatoknak az a hatása, hogy a színosztálybeli élek mentén az 
 Mivel a maxfokszám $(n-1)$, ezért a Vizing-tétel értelmében az élkromatikus szám legfeljebb $n$ ezért összesen $2n$ szavazót használtunk.
 
 ## Hamilton-út alapú megoldás (specifikus)
+
+[hamut.py](./hamut.py)
 
 (P. Ákos megoldása alapján)
 
