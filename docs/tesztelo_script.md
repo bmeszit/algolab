@@ -6,7 +6,7 @@
 - Több lehetséges megoldás esetén:
   - Sok feladat esetében a megoldás egyértelmű, azonban akad bőven olyan is, ahol több lehetséges jó megoldás van, például egy maximális párosítás megtalálása a gráfban.
   - Ilyenkor az általam írt `feladat/tesztek/tester.cpp` program ellenőrzi algoritmikusan a kiírt megoldás helyességét, a hivatalos megoldás alapján.
-  - Például egy párosítás maximalitását a hivatalos megoldással összevetve, az élek függetlenségét pedig algoritmikusan ellenőrzi.
+  - Például egy párosítás maximalitását a hivatalos megoldással összevetve, az élek létezését és függetlenségét pedig algoritmikusan ellenőrzi.
     - Általában figyelek rá, hogy a megoldás maga ne legyen része a tesztelő algoritmusnak. :)
 
 ## Tesztelés lokálisan
