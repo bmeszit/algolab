@@ -309,7 +309,7 @@ def pick_type(turn):
     elif t == 1:
         return BaseBot(turn)
     elif t == 2:
-        return BaseBot(turn)
+        return YourBot(turn)
     else:
         raise ValueError("Invalid type selected")
 

@@ -357,7 +357,7 @@ player* pick_type(int turn)
   cout << "Pick: "; cin>>t;
   if(t == 0) return new human(turn);
   if(t == 1) return new base_bot(turn);
-  if(t == 2) return new base_bot(turn);
+  if(t == 2) return new your_bot(turn);
   throw invalid_argument("Invalid type selected");
 }
 
