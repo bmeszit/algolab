@@ -62,7 +62,7 @@ function process_time_output {
 }
 
 function set_hard_limits {
-  ulimit -t 10
+  ulimit -t 15
   ulimit -v $((1024 * 1024 * 2))
   ulimit -s 65536
 }
@@ -124,6 +124,9 @@ function evaluate_file {
     fi
 
     time_limit=5
+    if [[ "$extension" == "py" ]]; then
+      time_limit=10
+    fi
     mem_limit=512
     
     compile "$source_file"
@@ -242,17 +245,7 @@ function print_manual {
     if [[ "$(basename "$file")" != "README.md" ]]; then
       printf " ?? --/-- %s\n" "$file"
     fi
-   done < <(
-    find "$dir" -type f \
-      ! -name '*.cpp' \
-      ! -name '*.py' \
-      ! -name '*.in' \
-      ! -name '*.ans' \
-      ! -name '*.sol' \
-      ! -name 'README.md' \
-      -print0 \
-    | sort -z
-  )
+  done < <(find "$dir" -type f \( -name "*.md" -o -name "*.txt" \) -print0 | sort -z)
 }
 
 function main {
