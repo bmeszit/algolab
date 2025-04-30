@@ -7,7 +7,7 @@ on:
       folder:
         description: 'Folder/File to evaluate (e.g. lab5, lab5/ora1-ttc, lab5/ora1-ttc/ttc.cpp)'
         required: true
-        default: 'lab5'
+        default: 'lab6'
 permissions:
   pull-requests: write
   contents: read
@@ -27,7 +27,7 @@ jobs:
       - name: Run evaluation
         id: eval
         run: |
-          FOLDER="${{ github.event.inputs.folder || 'lab5' }}"
+          FOLDER="${{ github.event.inputs.folder || 'lab6' }}"
           ./eval.sh -g "$FOLDER" | tee results.md
       - name: Comment on PR
         if: github.event_name == 'pull_request'
