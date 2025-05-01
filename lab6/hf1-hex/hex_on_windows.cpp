@@ -1,4 +1,10 @@
-#include <bits/stdc++.h>
+#include<algorithm>
+#include<vector>
+#include<iostream>
+#include<functional>
+#include<iomanip>
+#include<queue>
+#include<limits>
 using namespace std;
 
 const int infty = 1e9;
@@ -12,17 +18,17 @@ void reset(istream& in)
 struct coord
 {
   int x, y;
-  coord operator+(const coord& o) { return {x+o.x, y+o.y}; }
+  coord operator+(const coord& o) { return { x + o.x, y + o.y }; }
   friend ostream& operator<<(ostream& out, const coord& c)
   {
-    return out<<"("<<c.x+1<<","<<c.y+1<<")";
+    return out << "(" << c.x + 1 << "," << c.y + 1 << ")";
   }
   friend istream& operator>>(istream& in, coord& c)
   {
     int a, b;
-    while (!(in>>a)) { in.clear(); in.ignore(1); }
-    while (!(in>>b)) { in.clear(); in.ignore(1); }
-    --a; --b; c={a,b};
+    while (!(in >> a)) { in.clear(); in.ignore(1); }
+    while (!(in >> b)) { in.clear(); in.ignore(1); }
+    --a; --b; c = { a,b };
     return in;
   }
 };
@@ -34,8 +40,8 @@ struct command
   coord c;
   command(int undo_steps, coord c) : undo_steps(undo_steps), c(c) {}
   command(coord c) : undo_steps(0), c(c) {}
-  static command undo() { return {undo_default, {}}; }
-  static command undo(int undo_steps) { return {undo_steps, {}}; }
+  static command undo() { return { undo_default, {} }; }
+  static command undo(int undo_steps) { return { undo_steps, {} }; }
 };
 int command::undo_default = 1;
 
@@ -47,6 +53,7 @@ struct player
 
   virtual command move(const vector<vector<int>>& board) = 0;
   virtual void opponent_move(const vector<vector<int>>& board, const coord& c) = 0;
+  virtual ~player() {}
 };
 
 struct human : public player
@@ -55,17 +62,17 @@ struct human : public player
   virtual bool is_human() const { return true; }
   virtual command move(const vector<vector<int>>& board)
   {
-    while(true)
+    while (true)
     {
-      if(cin.peek()=='u')
-      { 
+      if (cin.peek() == 'u')
+      {
         cin.ignore(1);
-        while(cin.peek()!='\n' && !isdigit(cin.peek())) cin.ignore(1);
-        int x=command::undo_default; if(isdigit(cin.peek())) cin>>x;
+        while (cin.peek() != '\n' && !isdigit(cin.peek())) cin.ignore(1);
+        int x = command::undo_default; if (isdigit(cin.peek())) cin >> x;
         reset(cin);
         return command::undo(x);
       }
-      if(isdigit(cin.peek())) { coord c; cin>>c; reset(cin); return c; }
+      if (isdigit(cin.peek())) { coord c; cin >> c; reset(cin); return c; }
       cin.ignore(1);
     }
   }
@@ -81,65 +88,65 @@ private:
   const int n;
   vector<vector<int>> board;
   vector<coord> history;
-  player &p0, &p1;
+  player& p0, & p1;
 
 public:
   hex_game(int n, player& p0, player& p1) : n(n), board(n, vector<int>(n, -1)), p0(p0), p1(p1)
   {
-    if(p0.is_human() != p1.is_human()) command::undo_default=2;
-    else command::undo_default=1;
+      if (p0.is_human() != p1.is_human()) command::undo_default = 2;
+      else command::undo_default = 1;
   }
 
-  bool is_inside(coord c) const { return (0<=c.x && c.x<n) && (0<=c.y && c.y<n); }
+  bool is_inside(coord c) const { return (0 <= c.x && c.x < n) && (0 <= c.y && c.y < n); }
 
   bool check_win(int p)
   {
     vector<vector<bool>> visited(n, vector<bool>(n, false));
-    vector<coord> dirs={{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0}};
+    vector<coord> dirs = { {-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0} };
     function<bool(int, coord)> path = [&](int p, coord c)
     {
-      if(p==0 && c.x==n || p==1 && c.y==n) return true;
-      if(!is_inside(c)) return false;
-      if(board[c.x][c.y]!=p) return false;
-      if(visited[c.x][c.y]) return false;
+      if (p == 0 && c.x == n || p == 1 && c.y == n) return true;
+      if (!is_inside(c)) return false;
+      if (board[c.x][c.y] != p) return false;
+      if (visited[c.x][c.y]) return false;
       visited[c.x][c.y] = true;
-      for(auto& dir: dirs) if(path(p, c+dir)) return true;
+      for (auto& dir : dirs) if (path(p, c + dir)) return true;
       return false;
     };
-    for(int i=0; i<n; ++i)
+    for (int i = 0; i < n; ++i)
     {
-      auto s=coord{p*i,(1-p)*i};
-      if(board[s.x][s.y] == p && path(p, s)) return true;
+      auto s = coord{ p * i,(1 - p) * i };
+      if (board[s.x][s.y] == p && path(p, s)) return true;
     }
     return false;
   }
 
   char get_token(int x, int y)
   {
-    if(board[x][y]==-1) return '.';
+    if (board[x][y] == -1) return '.';
     int p = board[x][y];
     int round = history.size();
-    int turn = round%2;
+    int turn = round % 2;
 
     char normal = (p ? 'o' : 'x');
-    char last =  (p ? 'O' : 'X');
+    char last = (p ? 'O' : 'X');
 
-    if(0<round && history[round-1].x == x && history[round-1].y == y) return last;
-    if(1<round && history[round-2].x == x && history[round-2].y == y) return last;
+    if (0 < round && history[round - 1].x == x && history[round - 1].y == y) return last;
+    if (1 < round && history[round - 2].x == x && history[round - 2].y == y) return last;
     return normal;
   }
 
   void print_board()
   {
     cout << endl;
-    cout<<string(3,' ');
-    for (int j=0; j<n; ++j) cout<<setw(4)<<j+1;
-    cout<<endl;
-    for(int i=0; i<n; ++i)
+    cout << string(3, ' ');
+    for (int j = 0; j < n; ++j) cout << setw(4) << j + 1;
+    cout << endl;
+    for (int i = 0; i < n; ++i)
     {
-      cout<<setw(2)<<i+1<<string(2*i+1,' ');
-      for(int j=0; j<n; ++j) cout<<setw(4)<<get_token(i, j);
-      cout<<endl;
+      cout << setw(2) << i + 1 << string(2 * i + 1, ' ');
+      for (int j = 0; j < n; ++j) cout << setw(4) << get_token(i, j);
+      cout << endl;
     }
     cout << endl;
   }
@@ -156,22 +163,22 @@ public:
     cout << "    - Or specify how many moves to undo with 'u <num>', i.e. 'u 5'." << endl;
     cout << endl;
 
-    while(true)
+    while (true)
     {
       int round = history.size();
-      auto& player = round%2 ? p1 : p0;
-      auto& enemy  = round%2 ? p0 : p1;
+      auto& player = round % 2 ? p1 : p0;
+      auto& enemy = round % 2 ? p0 : p1;
       string name = player.turn ? "Horizontal (o)" : "Vertical (x)";
-      
+
       cout << name << " move: " << flush;
       auto move = player.move(board);
-      
-      if(move.undo_steps)
+
+      if (move.undo_steps)
       {
-        if(history.empty()) { cout << "No history to undo!" << endl; continue; }
+        if (history.empty()) { cout << "No history to undo!" << endl; continue; }
         move.undo_steps = min(move.undo_steps, (int)history.size());
         cout << "Undoing last " << move.undo_steps << " move(s)..." << endl;
-        for(int i=0; i<move.undo_steps; ++i)
+        for (int i = 0; i < move.undo_steps; ++i)
         {
           auto& c = history.back(); history.pop_back();
           board[c.x][c.y] = -1;
@@ -179,11 +186,11 @@ public:
         print_board();
         continue;
       }
-      
+
       auto& c = move.c;
       cout << c;
-      if(!is_inside(c)) { cout << " is outside of bounds!" << endl; continue; }
-      if(board[c.x][c.y] != -1) { cout << " is an occupied cell!" << endl; continue; }
+      if (!is_inside(c)) { cout << " is outside of bounds!" << endl; continue; }
+      if (board[c.x][c.y] != -1) { cout << " is an occupied cell!" << endl; continue; }
       cout << " is ok." << endl;
 
       history.push_back(c);
@@ -211,56 +218,59 @@ struct graph
 
   void add_edge(int v, int u)
   {
-    if(v < 0 || n() <= v) throw invalid_argument("graph vertex doesn't exist");
-    if(u < 0 || n() <= u) throw invalid_argument("graph vertex doesn't exist");
-    mat[v][u]=1;
-    mat[u][v]=1;
+    if (v < 0 || n() <= v) throw invalid_argument("graph vertex doesn't exist");
+    if (u < 0 || n() <= u) throw invalid_argument("graph vertex doesn't exist");
+    mat[v][u] = 1;
+    mat[u][v] = 1;
   }
 
   vector<coord> shortest_path(int turn)
   {
     int s, t, incl, excl;
-    if(turn == 0) { s = s0; t = t0; incl = 0; excl = 1; }
-    else if(turn == 1) { s = s1; t = t1; incl = 1; excl = 0; }
+    if (turn == 0) { s = s0; t = t0; incl = 0; excl = 1; }
+    else if (turn == 1) { s = s1; t = t1; incl = 1; excl = 0; }
     else throw invalid_argument("incorrect turn");
 
-    vector<int> p(n(), -1);     p[s]=-2;
-    vector<int> d(n(), infty);  d[s]=0;
-    min_heap q; q.push({0, s});
-  
-    while(!q.empty())
-    {
-      auto[dv, v]=q.top(); q.pop();
+    vector<int> p(n(), -1);     p[s] = -2;
+    vector<int> d(n(), infty);  d[s] = 0;
+    min_heap q; q.push({ 0, s });
 
-      if(d[v] < dv) continue;
-      for(int u=0; u<n(); ++u)
+    while (!q.empty())
+    {
+      pair<int, int> x = q.top();
+      int dv = x.first;
+      int v = x.second;
+      q.pop();
+
+      if (d[v] < dv) continue;
+      for (int u = 0; u < n(); ++u)
       {
-        if(color[u]==excl) continue;
-        if(!mat[v][u]) continue;
-        int w=color[u]!=incl;
-        auto du = dv+w;
-        if(d[u] <= du) continue;
+        if (color[u] == excl) continue;
+        if (!mat[v][u]) continue;
+        int w = color[u] != incl;
+        auto du = dv + w;
+        if (d[u] <= du) continue;
         p[u] = v; d[u] = du;
-        q.push({d[u], u});
+        q.push({ d[u], u });
       }
     }
 
-    if(d[t]==infty) throw runtime_error("no path");
+    if (d[t] == infty) throw runtime_error("no path");
 
     vector<int> path;
-    int curr=t;
-    while(curr!=s)
+    int curr = t;
+    while (curr != s)
     {
       path.push_back(curr);
       curr = p[curr];
     }
     path.push_back(s);
     reverse(path.begin(), path.end());
-    
+
     vector<coord> ans;
-    for(int i=1; i<path.size()-1; ++i)
+    for (int i = 1; i < path.size() - 1; ++i)
     {
-      if(color[path[i]]!=-1) continue;
+      if (color[path[i]] != -1) continue;
       ans.push_back(which[path[i]]);
     }
     return ans;
@@ -270,40 +280,40 @@ struct graph
   {
     int n = board.size();
 
-    mat.assign(n*n+4, vector<int>(n*n+4));
-    color.assign(n*n+4, -1);
-    which.assign(n*n+4, {-1,-1});
+    mat.assign(n * n + 4, vector<int>(n * n + 4));
+    color.assign(n * n + 4, -1);
+    which.assign(n * n + 4, { -1,-1 });
 
     // vertical player:
-    s0=n*n;   color[s0]=0;
-    t0=n*n+1; color[t0]=0;
+    s0 = n * n;   color[s0] = 0;
+    t0 = n * n + 1; color[t0] = 0;
     // horizontal player:
-    s1=n*n+2; color[s1]=1;
-    t1=n*n+3; color[t1]=1;
+    s1 = n * n + 2; color[s1] = 1;
+    t1 = n * n + 3; color[t1] = 1;
 
-    vector<coord> dirs={{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0}};
-    auto is_inside = [&](coord c) { return (0<=c.x && c.x<n) && (0<=c.y && c.y<n); };
+    vector<coord> dirs = { {-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0} };
+    auto is_inside = [&](coord c) { return (0 <= c.x && c.x < n) && (0 <= c.y && c.y < n); };
     auto idx = [&](coord c) { return c.x * n + c.y; };
 
-    for(int i=0; i<n; ++i)
+    for (int i = 0; i < n; ++i)
     {
-      add_edge(s0, idx({0, i}));
-      add_edge(t0, idx({n-1, i}));
-      add_edge(s1, idx({i, 0}));
-      add_edge(t1, idx({i, n-1}));
+      add_edge(s0, idx({ 0, i }));
+      add_edge(t0, idx({ n - 1, i }));
+      add_edge(s1, idx({ i, 0 }));
+      add_edge(t1, idx({ i, n - 1 }));
     }
 
     coord c;
-    for(c.x=0; c.x<n; ++c.x)
-    for(c.y=0; c.y<n; ++c.y)
+    for (c.x = 0; c.x < n; ++c.x)
+    for (c.y = 0; c.y < n; ++c.y)
     {
       color[idx(c)] = board[c.x][c.y];
       which[idx(c)] = c;
-      for(auto& dir : dirs)
+      for (auto& dir : dirs)
       {
-        auto cd = c + dir;
-        if (!is_inside(cd)) continue;
-        add_edge(idx(c), idx(cd));
+          auto cd = c + dir;
+          if (!is_inside(cd)) continue;
+          add_edge(idx(c), idx(cd));
       }
     }
   }
@@ -317,13 +327,13 @@ struct base_bot : public player
     auto g = graph(board);
     auto player = g.shortest_path(0);
     auto enemy = g.shortest_path(1);
-    if(turn) swap(player, enemy);
+    if (turn) swap(player, enemy);
     if (player.empty() || enemy.empty())  throw runtime_error("no available moves");
 
     coord ans;
-    if(player.size() < enemy.size()) ans = player[player.size()/2];
-    else ans = enemy[enemy.size()/2];
-    
+    if (player.size() < enemy.size()) ans = player[player.size() / 2];
+    else ans = enemy[enemy.size() / 2];
+
     return ans;
   }
   virtual void opponent_move(const vector<vector<int>>& board, const coord& c)
@@ -354,20 +364,20 @@ player* pick_type(int turn)
   cout << "(2) Your bot (to be implemented)" << endl;
 
   int t;
-  cout << "Pick: "; cin>>t;
-  if(t == 0) return new human(turn);
-  if(t == 1) return new base_bot(turn);
-  if(t == 2) return new your_bot(turn);
+  cout << "Pick: "; cin >> t;
+  if (t == 0) return new human(turn);
+  if (t == 1) return new base_bot(turn);
+  if (t == 2) return new your_bot(turn);
   throw invalid_argument("Invalid type selected");
 }
 
 int main()
 {
-  int n; cout<<"Board size: "; cin>>n; reset(cin);
+  int n; cout << "Board size: "; cin >> n; reset(cin);
   player* p0 = pick_type(0);
   player* p1 = pick_type(1);
   hex_game hex(n, *p0, *p1);
-  
+
   hex.run();
 
   delete p0;
