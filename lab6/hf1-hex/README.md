@@ -35,7 +35,7 @@ Algojátékból tanultuk a Hex-ről, hogy:
   - Állapottér fájának valamilyen heurisztikus bejárása:
     - Lásd MI diasor: Problémamegoldás kereséssel [[1]][KERES-1], [[2]][KERES-2], [[3]][KERES-3]
     - Véletlen választás, heurisztikák, nyalábkeresés, stb.
-    - Adott mélységig minden ág kifejtése, az ennyi lépés után nyerő és vesztő ágak megszámolása.
+    - Adott mélységig minden ág kifejtése, az ennyi lépés után nyerő és vesztő ágak megszámolása, ez alapján valamilyen pontszám hozzárendelése az adott lépéshez, a legjobb lépés kiválasztása.
 - Modellezés, a modellen működő specifikusabb ötletek:
   - Modellezés:
     - Gráf, csúcsai = mezők, élei = szomszédos mezők, további 1-1 extra csúcs játékosonként, a "0." és "n." oszlop, illetve sor reprezentálására.
@@ -44,8 +44,12 @@ Algojátékból tanultuk a Hex-ről, hogy:
     - Esetleg érdemes inkább a közepéről választani, intuitíven az jobb lesz, valószínűleg több lehetséges útvonalnak is a része.
       - A `base_bot` ezt csinálja, illetve az ellenfél oldaláról is megnézi a legrövidebb utat és inkább abba rondít bele, ha az rövidebb mint az övé.
   - Az ellenfél akadályozása, egy minimális vágás megtalálásával az ő kezdő- és végcsúcsa között, majd annak egy következő mezőjének a megépítése.
+  - A heurisztikus keresés irányítására pontozhatjuk az aktuális játékállapotot, például:
+    - Hanyadik sorig/oszlopig tudunk eljutni kezdő, illetve a végcsúcsunkból saját színű mezőkön lépkedve?
+    - Mennyi a legrövidebb út hossza a kezdő- és a végcsúcsunk között?
 - A Hex játék konkrét struktúrájának kihasználása:
   - Híd formáció: lásd [HexWiki](https://www.hexwiki.net/index.php/Basic_(strategy_guide)#The_bridge).
+    - Próbálkozhatunk először ilyen hidak építésével, majd azok lezárásával. Ezeket érdemes valahogy beépíteni a modellünkbe. :)
   - A vágáshoz folyamalgoritmust nem programoztunk, de azt állítom hogy ebben a konkrét gráfban az ellenfél kezdő és végcsúcsa közötti minimális vágás megtalálásához nincs is szükség folyamalgoritmusra. Nyitott kérdés, hogy miért és milyen (egyszerűbb) algoritmust lehet helyette használni. :)
 
 A `base_bot` mellett készítettem egy másik botot is, ami a fentiek közül használ egy-két ötletet és ezek segítségével az *összes* teszteseten meg tudja verni a `base_bot`-ot. Tehát a feladat nem lesz nehéz! :)
