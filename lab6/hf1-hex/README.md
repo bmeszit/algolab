@@ -5,7 +5,7 @@ A feladat célja HEX játszó bot implementálása `c++`-ban vagy `Python`-ban.
 ## Kód használata
 
 A `c++`-os kód ha esetleg nem fordul Windowson (ha nem mingw-s `c++`-otok van),
-akkor az órai javított kód itt elérhető, ez helyszínen futott windowson többeknek:
+akkor az órai javított kód itt elérhető, ez helyszínen futott Windowson többeknek:
 [hex_on_windows.cpp](https://github.com/bmeszit/algolab/blob/main/lab6/hf1-hex/hex_on_windows.cpp).
 
 Emberi játék:
